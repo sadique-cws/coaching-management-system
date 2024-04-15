@@ -1,5 +1,6 @@
 import "./admin.css";
 import AdminHeader from "./admin/ui/AdminHeader";
+import MenuBar from "./admin/ui/MenuBar";
 
 export const metadata = {
   title: 'Next.js',
@@ -11,6 +12,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body>
         <AdminHeader/>
+        <MenuBar/>
         {children}</body>
     </html>
   )

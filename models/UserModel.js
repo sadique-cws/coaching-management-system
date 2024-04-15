@@ -5,6 +5,16 @@ const UserSchema = new Schema({
         type: String,
         required: true,
     },
+    father:{
+        type:String,
+    },
+    gender:{
+        type:String,
+    },
+    status: {
+        type:Boolean,
+        default:false,
+    },
     email: {
         type: String,
         required: true,
@@ -23,6 +33,9 @@ const UserSchema = new Schema({
     role:{
         type: String,
         default: 'user',
+    },
+    address:{
+        type:String,
     }
 });
 

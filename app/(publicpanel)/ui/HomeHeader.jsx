@@ -19,7 +19,7 @@ const HomeHeader = () => {
                     </div>
                     <nav className="space-x-4 flex">
                        {
-                        !session && (<> <Link href="/register" className="text-gray-800 hover:text-gray-600">Register</Link>
+                        !session && (<> <Link href="/register" className="text-gray-800 hover:text-gray-600">Register for Admission</Link>
                         <Link href="/login" className="text-gray-800 hover:text-gray-600">Login</Link>
                         </>)
                        }

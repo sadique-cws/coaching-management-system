@@ -1,3 +1,12 @@
-export { default } from "next-auth/middleware"
+import { withAuth } from "next-auth/middleware"
 
-export const config = { matcher: ["/"] }
+
+export default withAuth(function middleware(req){
+
+}, {
+    callbacks: {
+        authorized: ({token}) => token?.role === "admin",
+    }
+});
+
+export const config = { matcher: ["/admin"] }

@@ -1,10 +1,12 @@
+import CourseModel from '@/models/CourseModel';
+import UserModel from '@/models/UserModel';
 import React from 'react';
 
-const Dashboard = () => {
+const Dashboard = async () => {
     // Sample data (replace with actual data)
-    const totalStudents = 100;
-    const totalAdmissions = 50;
-    const totalCourses = 20;
+    const totalStudents = await UserModel.countDocuments({status:true});
+    const totalAdmissions = await UserModel.countDocuments({status:false});
+    const totalCourses = await CourseModel.countDocuments();
     const totalPayments = 500;
 
     return (
