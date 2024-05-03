@@ -1,6 +1,11 @@
+import { Toaster } from "react-hot-toast";
 import "./admin.css";
 import AdminHeader from "./admin/ui/AdminHeader";
 import MenuBar from "./admin/ui/MenuBar";
+import { ToasterProvider } from "@/context/ToasterProvider";
+import Navbar from "./admin/ui/navbar";
+import Sidebar from "./admin/ui/side-bar";
+import "@uploadthing/react/styles.css";
 
 export const metadata = {
   title: 'Next.js',
@@ -10,10 +15,19 @@ export const metadata = {
 export default function RootLayout({ children }) {
  return (
     <html lang="en">
-      <body>
-        <AdminHeader/>
-        <MenuBar/>
-        {children}</body>
+      <body className="min-h-screen bg-background font-sans antialiased">
+        <div className="h-[80px] md:pl-56 fixed inset-y-0 w-full z-50">
+          <Navbar/>
+        </div>
+        <div className="hidden md:flex h-full w-56 fixed flex-col inset-y-0 z-50">
+          <Sidebar/>
+        </div>
+        <main className="md:pl-56 pt-[80px] h-full">
+        <ToasterProvider/>
+        {children}
+        
+        </main>
+        </body>
     </html>
   )
 }

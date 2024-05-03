@@ -9,7 +9,7 @@ import GoogleProvider from "next-auth/providers/google"
 
 async function login(credentials){
     try {
-        await connectDb();
+        await connectDb(); 
         const user = await UserModel.findOne({email: credentials.email});
         const isCorrect = await bcrypt.compare(credentials.password,user.password)
 

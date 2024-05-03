@@ -1,19 +1,8 @@
-import connectDb from "@/utils/connectDb";
-import CategoryModel from "@/models/CategoryModel";
-import {redirect} from "next/navigation";
+import { handleDelete } from "@/app/actions";
 
 const Categories = ({categories}) => {
 
-    const handleDelete = async (formData) => {
-        "use server";
-        await connectDb();
-        let id = formData.get("_id");
-        id = JSON.parse(id);
-
-
-        let category = await CategoryModel.findByIdAndDelete(id);
-        redirect("/admin/category");
-    }
+    
 
     return (
         <div>

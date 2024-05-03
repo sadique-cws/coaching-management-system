@@ -1,20 +1,13 @@
-import CategoryModel from "@/models/CategoryModel"
-import connectDb from "@/utils/connectDb";
-import {redirect} from "next/navigation"
+"use client"
+import { handleSubmitCategory } from "@/app/actions";
+import toast from "react-hot-toast";
+
 const AddCategory = () => {
-    const handleSubmit = async(formdata) => {
-        "use server";
-        await connectDb();
+    
 
-        let name = formdata.get("name");
-        let description = formdata.get("description");
-
-        let category = new CategoryModel({name, description}).save();
-
-        redirect("/admin/categories");
-
-
-
+    const handleSubmit = async (formData) => {
+        await handleSubmitCategory(formData);
+        toast.success("category created successfully")
     }
    
 

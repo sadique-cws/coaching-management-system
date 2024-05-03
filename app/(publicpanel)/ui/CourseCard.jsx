@@ -12,7 +12,7 @@ const CourseCard = ({ course }) => {
                 </div>
                 <div className="flex justify-between items-center mb-2">
                     <span className="text-gray-600">Difficulty: {course.difficulty}</span>
-                    <span className="text-gray-600">Category: {course.category.name}</span>
+                    <span className="text-gray-600">Category: {course.category?.name}</span>
                 </div>
                 
                 <Link href={`/course/${course._id}`} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-2">

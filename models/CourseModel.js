@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import CategoryModel from "./CategoryModel";
 
 const CourseSchema = new mongoose.Schema({
     title: {
@@ -7,51 +8,60 @@ const CourseSchema = new mongoose.Schema({
     },
     description: {
         type: String,
-        required: true
+        default:null,
     },
     fee: {
         type: Number,
-        required: true
+        default:null,
     },
     instructor: {
         type: String,
         default: 'Hussain Sir',
-        required: true
+        default:null,
     },
     difficulty: {
         type: String,
         enum: ['Beginner', 'Intermediate', 'Advanced'],
-        required: true
+        default:null,
     },
     prerequisites: {
-        type: String
+        type: String,
+        default:null,
+
     },
     enrollmentLimit: {
         type: Number,
         default:20
     },
     startDate: {
-        type: Date
+        type: Date,
+        default:null,
+
     },
     endDate: {
-        type: Date
+        type: Date,
+        default:null,
     },
     duration: {
         type: Number,
-        required: true
+        default:null,
+
     },
     image:{
         type: String,
-        required: true,
+        default:null,
+
     },
     category: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Category',
-        required: true
+        ref: CategoryModel,
+        default:null,
+
     },
     students: [{
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Student'
+        ref: 'Student',
+        default:null,
     }],
     status: {
         type: String,
